@@ -39,7 +39,6 @@ for ang in range(numCuts):
 
     num = int(cutLen)
     x, y = np.linspace(x0, x1, num), np.linspace(y0, y1, num)
-    # Extract the values along the line, using cubic interpolation
     zi = 0
     zi = scipy.ndimage.map_coordinates(imData, np.vstack((x,y)))
 
@@ -48,8 +47,6 @@ for ang in range(numCuts):
     axes[1].plot(zi,'-',alpha=0.8,linewidth=1.0,label=str(float(ang)*angPerCuts)+"degrees")
 
 axes[1].set_xlim([0,cutLen])
-
-#=== OVERLAY 1/r^x models ===#
 axes[1].legend()
 plt.show()
 hdulist.close()
